@@ -37,17 +37,18 @@ class App extends Component {
   state = {
     postData: {
       // extra entries
-      lp_campaign_id: "5fe0d62882ef8",
-      lp_campaign_key: "Gn2J4NDMpk38vxyBbQm7",
+      lp_campaign_id: "60184895300f1",
+      lp_campaign_key: "HLrBJGjTQP7NC3fmv6k4",
       IP_Address: "",
-      lp_s1: 13,
-      lp_s2: 12,
+      lp_s1: 12,
+      lp_s2: 13,
       trusted_form_cert_id: "",
+      gclid: '',
       User_Agent: "",
-      Landing_Page: "auto.quotehound.com",
+      Landing_Page: "auto.quantumassurance.com",
       TCPA_Consent: "Yes",
       TCPA_Language:
-        "By hitting submit below, I provide my express written consent to the following. Telemarketing calls, text messages, emails, and postal mail from this Web site, our marketing and re-marketing network, and up to eight insurance companies or their affiliates  or representatives at the phone number (including wireless number), email address, and postal address provided by me. Telemarketing calls, text messages, emails, and postal mail (including wireless number), email address, and postal address provided by me. Calls and text messages transmitting insurance quotes, or seeking related additional information from me, using an Automated Telephone Dialing System or prerecorded or artificial voices. Electronic video monitoring and recordation of my activities on this Site; and I acknowledge that I may revoke my consent at any time by Calling 1 888-316-1350 or emailing “STOP” to  optout@quantumassurance.com.  I AGREE TO ALL OF THE ABOVE AND SEND MY QUOTE",
+        "By hitting submit below, I provide my express written consent to the following. Telemarketing calls, text messages, emails, and postal mail from this Web site, our marketing and re-marketing network, and up to eight insurance companies or their affiliates  or representatives at the phone number (including wireless number), email address, and postal address provided by me. Telemarketing calls, text messages, emails, and postal mail (including wireless number), email address, and postal address provided by me. Calls and text messages transmitting insurance quotes, or seeking related additional information from me, using an Automated Telephone Dialing System or prerecorded or artificial voices. Electronic video monitoring and recordation of my activities on this Site; and I acknowledge that I may revoke my consent at any time by Calling 1 888-316-1350 or emailing “STOP” to  optout@quantumassurance.com.  I AGREE TO ALL OF THE ABOVE AND SEND MY QUOTE",
       Format: "JSON",
       jornaya_lead_id: "",
       Vehicle_1_Average_One_Way_Mileage: 0,
@@ -230,43 +231,15 @@ class App extends Component {
   };
 
   componentDidMount = () => {
-    
-
-// var str = window.location.href;
-
-// if (str.includes('utm_medium=facebook'))
-//   this.setState({
-//     postData: {
-//       lp_s1: 103,
-//       lp_s2: 103
-
-//     }
-//   })
-
-//   if(str.includes('utm_medium=bing'))
-//     this.setState({
-//       postData: {
-//         lp_s1: 108,
-//         lp_s2: 108
-//       }
-//     })
-
-// if  (str.includes('utm_medium=adwords'))
-//   this.setState({
-//     postData: {
-      
-//       lp_s1: 101,
-//       lp_s2: 101
-//     }
-//   })
-
-// if (str.includes('/'))
-//   this.setState({ 
-//     postData: {
-//       lp_s1: 13,
-//       lp_s2: 13
-//     }
-//   })
+    var str = window.location.href
+    if (str.includes('utm_medium=facebook'))
+      this.setState({ Pub_ID: 103 }, () => {
+        //console.log(this.state.Pub_ID)
+      })
+    if (str.includes('utm_medium=adwords'))
+      this.setState({ Pub_ID: 101 }, () => {
+        //console.log(this.state.Pub_ID)
+      })
   };
 
   zipCodeCity = (value) => {
@@ -311,7 +284,7 @@ class App extends Component {
         <header className="navbar navbar-expand flex-column flex-md-row bd-navbar">
           <div className="container">
             <img
-              src={require("./Assets/logo.png")}
+              src={require("./Assets/logoQ.png")}
               className="m-4"
               width="200px"
               alt=""
@@ -327,9 +300,9 @@ class App extends Component {
                       style={{ verticalAlign: "initial" }}
                     />
                   }
-                  href="tel:(855) 466-4705"
+                  href="(855) 434-4762"
                 >
-                  (855) 466-4705
+                      (855) 434-4762
                 </Button>
               </li>
             </ul>
@@ -595,7 +568,7 @@ class App extends Component {
             </Grid>
             <Grid item xs={12}>
               <p className="footerText2" style={{ textAlign: "center" }}>
-                Most people don’t enjoy having someone try to sell them something—that’s just human nature. But what’s even more frustrating is having someone try to sell you something when you kind of think you might need it, but you’re not sure. So, the first thing you need to do when it comes to choosing a <strong>car insurance</strong> company is figure out exactly what you need. That way, you can have much more control over the purchasing experience, because you’ll know what you are shopping for—and what you’re not interested in buying. Get your <strong>free auto quote</strong> with Quotehound today and compare <b>real quotes  </b>online!
+                Most people don’t enjoy having someone try to sell them something—that’s just human nature. But what’s even more frustrating is having someone try to sell you something when you kind of think you might need it, but you’re not sure. So, the first thing you need to do when it comes to choosing a <strong>car insurance</strong> company is figure out exactly what you need. That way, you can have much more control over the purchasing experience, because you’ll know what you are shopping for—and what you’re not interested in buying. Get your <strong>free auto quote</strong> with Quantum Assurance today start saving!
                   </p>
             </Grid>
           </Grid>
@@ -663,7 +636,7 @@ class App extends Component {
               <Typography
                 style={{ fontSize: "12px", color: "rgb(166, 166, 166)" }}
               >
-                @ 2020 Quotehound
+                @ 2020 Quantum Assurance
               </Typography>
             </Grid>
             <Grid item lg={6} xs={0} />
@@ -682,7 +655,7 @@ class App extends Component {
                   }}
                 >
                   <a
-                    href="https://quotehound.com/"
+                    href="https://quantumassurance.com/"
                     style={{ color: "rgb(166,166,166)", fontWeight: "400" }}
                   >
                     {" "}
@@ -700,7 +673,7 @@ class App extends Component {
                   style={{ fontSize: "12px", color: "rgb(166, 166, 166)" }}
                 >
                   <a
-                    href="https://quotehound.com/privacy-policy"
+                    href="https://quantumassurance.com/privacy-policy"
                     style={{ color: "rgb(166,166,166)", fontWeight: "400" }}
                   >
                     Privacy Policy
@@ -721,7 +694,7 @@ class App extends Component {
                   }}
                 >
                   <a
-                    href="https://quotehound.com/terms-conditions"
+                    href="https://quantumassurance.com/terms-conditions"
                     style={{ color: "rgb(166,166,166)", fontWeight: "400" }}
                   >
                     Terms & Conditions
