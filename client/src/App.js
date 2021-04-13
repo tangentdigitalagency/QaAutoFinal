@@ -40,11 +40,11 @@ class App extends Component {
       lp_campaign_id: "60184895300f1",
       lp_campaign_key: "HLrBJGjTQP7NC3fmv6k4",
       IP_Address: "",
-      lp_s1: 12,
+      lp_s1: '',
       lp_s2: 13,
       trusted_form_cert_id: "",
       gclid: '',
-      User_Agent: "",
+      User_Agent: navigator.userAgent,
       Landing_Page: "auto.quantumassurance.com",
       TCPA_Consent: "Yes",
       TCPA_Language:
@@ -231,15 +231,53 @@ class App extends Component {
   };
 
   componentDidMount = () => {
-    var str = window.location.href
-    if (str.includes('utm_medium=facebook'))
-      this.setState({ Pub_ID: 103 }, () => {
-        //console.log(this.state.Pub_ID)
-      })
-    if (str.includes('utm_medium=adwords'))
-      this.setState({ Pub_ID: 101 }, () => {
-        //console.log(this.state.Pub_ID)
-      })
+    const queryString = window.location.search;
+		const urlParams = new URLSearchParams(queryString);
+
+		const utmCampaign = urlParams.get('utm_campaign');
+		this.setState({
+			postData: {
+				...this.state.postData,
+				campaign: utmCampaign
+			}
+			
+		})
+
+		const utmMed = urlParams.get('utm_medium');
+
+		if (utmMed == 'adwords'){
+			this.setState({
+				postData: {
+					...this.state.postData,
+					lp_s1: '101'
+				},
+			});
+		}
+		if (utmMed == 'facebook'){
+			this.setState({
+				postData: {
+					...this.state.postData,
+					lp_s1: '103'
+				},
+			});
+		}
+		if (utmMed == 'bing'){
+			this.setState({
+				postData: {
+					...this.state.postData,
+					lp_s1: '108'
+				},
+			});
+		}
+		else{
+			this.setState({
+				postData: {
+					...this.state.postData,
+					lp_s1: '12'
+				},
+			});
+		}
+
   };
 
   zipCodeCity = (value) => {
