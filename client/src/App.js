@@ -100,7 +100,7 @@ class App extends Component {
       // S12
       // Homeowner
       married: "Single",
-      homeowner: ""
+      homeowner: "",
       gender: "",
       // S13
       education_level: "",
