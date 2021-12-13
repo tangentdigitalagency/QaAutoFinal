@@ -90,7 +90,7 @@ class S1ZipCode extends Component {
     return (
       <div className="container p-0">
           <h1 className="text-center main-heading">
-          Start Saving With Quotehound
+          Start Saving With Quantum Assurance
         </h1>
         <div className="main-content-inner-container mb-5">
           <div className="right-number">1/16</div>
